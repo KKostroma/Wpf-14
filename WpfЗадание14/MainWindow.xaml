@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfЗадание14"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="400">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="800" Width="400">
+    <Window.Resources>
+        <DataTemplate x:Key="myTemplate">
+            <Border x:Name="border" BorderBrush="Green" Background="Beige" BorderThickness="2" Padding="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Width="70" Source="{Binding Path=ProdImage}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Название товара"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=ProdName}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Цена"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=ProdPrice}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Категория товаров"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Path=ProductCategory}"/>
+                </Grid>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=ProductCategory}">
+                    <DataTrigger.Value>
+                        <local:ProductCategorys>Food</local:ProductCategorys>
+                    </DataTrigger.Value>
+                    <Setter TargetName="border" Property="Background" Value="White"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </Window.Resources>
+    <StackPanel>
+        <TextBlock x:Name="problemTile" FontSize="20" Margin="10,5,0,0" Text="Список покупок:"/>
+        <ListBox x:Name="lstBox" Width="500" Margin="20" ItemTemplate = "{StaticResource myTemplate}" HorizontalAlignment="Stretch"/>
+    </StackPanel>
 </Window>

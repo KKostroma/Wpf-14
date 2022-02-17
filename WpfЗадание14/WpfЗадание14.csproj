@@ -69,6 +69,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +94,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
